@@ -89,7 +89,7 @@ class App extends Component {
 
 
 render() {
-    const { visibleImages, openModal, modalContent, isLoading, page, totalImages } =
+    const { visibleImages, openModal, modalContent, isLoading, totalImages } =
     this.state;
     const isNotLastPage = visibleImages.length !== totalImages;
     const btnEnable = visibleImages.length > 0 && !isLoading && isNotLastPage;
