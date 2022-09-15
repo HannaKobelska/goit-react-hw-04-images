@@ -1,36 +1,26 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { FaSearch } from 'react-icons/fa';
 
 import css from "../Searchbar/Searchbar.module.css";
 
-class SearchBar extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+export default function SearchBar( {onSubmit} ) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (event) => {
+    setSearchQuery(event.currentTarget.value);
   };
 
-  state = {
-    searchQuery: "",
-  };
-
-  handleChange = (event) => {
-    const { name, value } = event.currentTarget;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const { searchQuery } = this.state;
-
-    this.props.onSubmit(searchQuery);
-    this.setState({ searchQuery: "" });
+    onSubmit(searchQuery);
+    setSearchQuery("");
   };
 
-  render() {
-    const { searchQuery } = this.state;
+   
     return (
       <header className={css.Searchbar}>
-        <form className={css.SearchForm} onSubmit={this.handleSubmit}>
+        <form className={css.SearchForm} onSubmit={handleSubmit}>
           <button type="submit" className={css.SearchFormButton}>
                     <span className={css.SearchFormButtonLabel}>
                         <FaSearch size = {25} />
@@ -43,13 +33,16 @@ class SearchBar extends Component {
             name="searchQuery"
             autoFocus
             placeholder="Search images and photos"
-            onChange={this.handleChange}
+            onChange={handleChange}
             value={searchQuery}
           />
         </form>
       </header>
     );
-  }
+  
 }
 
-export default SearchBar;
+
+SearchBar.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
