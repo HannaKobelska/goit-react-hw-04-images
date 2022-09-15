@@ -16,7 +16,15 @@ export default function Modal( {onCloseModal, content} ) {
     }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   window.addEventListener("keydown", handleKeyDown);
+  
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   }
+  // }, []);
+
+    useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
   
     return () => {
@@ -24,7 +32,7 @@ export default function Modal( {onCloseModal, content} ) {
     }
   }, []);
 
-    console.log(content);
+    
     return (
       <div className={css.Overlay} onClick={handleBackdropClick}>
         <div className={css.Modal}>

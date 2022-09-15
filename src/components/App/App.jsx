@@ -79,7 +79,7 @@ export default function App() {
       fetchPictures(searchQuery, page)
       .then(({ hits, total }) => {
         
-        setVisibleImages([...visibleImages, ...hits]);
+        setVisibleImages(visibleImages => [...visibleImages, ...hits]);
         setTotalImages(total);
       })
       .catch((error) => console.log(error.message))
