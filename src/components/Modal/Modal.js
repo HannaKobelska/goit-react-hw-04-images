@@ -30,7 +30,7 @@ export default function Modal( {onCloseModal, content} ) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     }
-  }, []);
+  }, [handleKeyDown]);
 
     
     return (
