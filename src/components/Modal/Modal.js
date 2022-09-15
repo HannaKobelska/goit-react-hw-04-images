@@ -10,11 +10,11 @@ export default function Modal( {onCloseModal, content} ) {
       }
   };
   
-    const handleKeyDown = (event) => {
-    if (event.code === "Escape") {
-      onCloseModal();
-    }
-  };
+  //   const handleKeyDown = (event) => {
+  //   if (event.code === "Escape") {
+  //     onCloseModal();
+  //   }
+  // };
 
   // useEffect(() => {
   //   window.addEventListener("keydown", handleKeyDown);
@@ -24,13 +24,19 @@ export default function Modal( {onCloseModal, content} ) {
   //   }
   // }, []);
 
-    useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+  useEffect(() => {
+    const onTap = (event) => {
+        if (event.code === "Escape") {
+      onCloseModal();
+    }
+  };
+      
+    window.addEventListener("keydown", onTap);
   
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    }
-  }, [handleKeyDown]);
+      window.removeEventListener("keydown", onTap);
+    };
+  }, [onCloseModal]);
 
     
     return (
