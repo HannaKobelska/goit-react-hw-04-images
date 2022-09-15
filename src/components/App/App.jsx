@@ -56,11 +56,27 @@ export default function App() {
   };
 
 
-const getData = () => {
+// const getData = () => {
     
-    toggleLoading();
+//     toggleLoading();
     
-    fetchPictures(searchQuery, page)
+//     fetchPictures(searchQuery, page)
+//       .then(({ hits, total }) => {
+        
+//         setVisibleImages([...visibleImages, ...hits]);
+//         setTotalImages(total);
+//       })
+//       .catch((error) => console.log(error.message))
+//       .finally(toggleLoading);
+//   };
+
+
+  useEffect(() => {
+    if (searchQuery !== "") {
+
+      toggleLoading();
+
+      fetchPictures(searchQuery, page)
       .then(({ hits, total }) => {
         
         setVisibleImages([...visibleImages, ...hits]);
@@ -68,13 +84,9 @@ const getData = () => {
       })
       .catch((error) => console.log(error.message))
       .finally(toggleLoading);
-  };
-
-
-  useEffect(() => {
-    if (searchQuery !== "") {
      
-         getData();
+      // getData();
+      
     handleScroll();
     }
  
