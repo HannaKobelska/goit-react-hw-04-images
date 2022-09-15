@@ -10,19 +10,6 @@ export default function Modal( {onCloseModal, content} ) {
       }
   };
   
-  //   const handleKeyDown = (event) => {
-  //   if (event.code === "Escape") {
-  //     onCloseModal();
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("keydown", handleKeyDown);
-  
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   }
-  // }, []);
 
   useEffect(() => {
     const onTap = (event) => {

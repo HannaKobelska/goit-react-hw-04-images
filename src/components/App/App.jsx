@@ -56,21 +56,6 @@ export default function App() {
   };
 
 
-// const getData = () => {
-    
-//     toggleLoading();
-    
-//     fetchPictures(searchQuery, page)
-//       .then(({ hits, total }) => {
-        
-//         setVisibleImages([...visibleImages, ...hits]);
-//         setTotalImages(total);
-//       })
-//       .catch((error) => console.log(error.message))
-//       .finally(toggleLoading);
-//   };
-
-
   useEffect(() => {
     if (searchQuery !== "") {
 
@@ -84,8 +69,7 @@ export default function App() {
       })
       .catch((error) => console.log(error.message))
       .finally(toggleLoading);
-     
-      // getData();
+    
       
     handleScroll();
     }
