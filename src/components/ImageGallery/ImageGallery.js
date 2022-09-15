@@ -1,4 +1,4 @@
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
 import css from "./ImageGallery.module.css";
 
